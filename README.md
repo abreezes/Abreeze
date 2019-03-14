@@ -8,6 +8,8 @@ Django+DRF+React创建的简单博客
 
 带两套admin后台/一套为简单的前端,一套为xadmin
 
+前端React使用[gershonv](https://github.com/gershonv/react-blog)的项目
+
 前端需要更改配置的
 安装环境依赖
 
