@@ -1,0 +1,47 @@
+upstream abreeze {
+# server unix:///path/to/your/mysite/mysite.sock; # for a file socket
+server 127.0.0.1:8001; # uwsgi的端口
+}
+
+
+server {
+    # 端口和域名
+    listen 8000;
+    server_name www.abreeze.online;
+
+    # 日志
+    access_log /home/laujiange/web/abreeze/conf/nginx/log/nginx.access.log;
+    error_log /home/laujiange/web/abreeze/conf/nginx/log/nginx.error.log;
+
+    charset utf-8;
+
+    client_max_body_size 75M;
+
+    # static 和 media 的地址
+    location /static {
+        alias /home/laujiange/web/abreeze/static;
+    }
+    location /media {
+        alias /home/laujiange/web/abreeze/media;
+    }
+    # gunicorn 中生成的文件的地址
+    location / {
+	uwsgi_pass abreeze;
+	include uwsgi_params;
+        }
+}
+
+server {
+    listen 80;
+    server_name abreeze.online;
+    rewrite ^(.*) http://www.abreeze.online$1 permanent;
+}
+
+
+
+#server {
+#    listen 8000;
+#    server_name www.abreeze.online/adminx;
+#    rewrite ^(.*) http://35.221.156.56:8000/adminx;
+#}
+
