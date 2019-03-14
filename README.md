@@ -33,3 +33,6 @@ Django+DRF+React创建的简单博客
 重新打包
 
 	npm run build
+	
+xadmin后台markdown编辑器因为使用了前后端分离无法,在前端页面无法渲染出图片,暂时的解决办法是使用本地markdown编辑并上传图片,最后复制到线上粘贴保存.
+react中的admin只能填写图片的连接上传不了
