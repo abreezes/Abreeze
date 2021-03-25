@@ -42,7 +42,7 @@ MarkupSafe = "==1.1.1"
 Pillow = "==5.4.1"
 PyJWT = "==1.7.1"
 PyMySQL = "==0.9.3"
-PyYAML = "==3.13"
+PyYAML = "==5.4"
 django-redis = "*"
 
 [dev-packages]
